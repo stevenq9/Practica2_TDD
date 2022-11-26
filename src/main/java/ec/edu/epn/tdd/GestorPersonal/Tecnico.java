@@ -15,7 +15,7 @@ public class Tecnico {
 
     @Override
     public String toString() {
-        return "\n Nombre: " + nombreTecnico + "\n Numero: " + numeroTecnico;
+        return "\n Nombre: " + nombreTecnico + "\n Numero: 0" + numeroTecnico;
     }
 
 
@@ -35,7 +35,7 @@ public class Tecnico {
             wr.close();
             bw.close();
             //Informacion Respaldo Creado
-            System.out.println("--------------------- Tecnico Resgistrado ------------------------------------");
+            System.out.println("--------------------- Datos del técnico ------------------------------------");
             System.out.println(toString());
             System.out.println("---------------------------------------------------------");
         }catch(Exception e){

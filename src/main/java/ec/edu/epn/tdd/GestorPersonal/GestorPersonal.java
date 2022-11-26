@@ -3,6 +3,7 @@ package ec.edu.epn.tdd.GestorPersonal;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.sql.Array;
 import java.util.Scanner;
 
 public class GestorPersonal {
@@ -61,6 +62,19 @@ public class GestorPersonal {
         return false;
     }
 
+    public boolean[] modificarDatosTecnico(String nombreTecnico, int numero) {
+        boolean modificaciones [] = {false, false};
+        if (comprobarExistenciaTecnico(nombreTecnico)){
+            modificaciones[0] = true; //El tecnico a modificar existe
+
+            Tecnico t1 = new Tecnico(nombreTecnico, numero);
+            t1.RegistrarRespaldo();
+            modificaciones[1] = true; //Se modifico de manera adecuada los datos del tecnico
+                                      //y se respaldo la informacion
+        }
+        return modificaciones;
+    }
+
 
     //Menu
     public void Menu(){
@@ -93,7 +107,16 @@ public class GestorPersonal {
                     nombreTecnico += lectura.next();
                     EliminarTecnico(nombreTecnico);
                     break;
-                case 3:  //Salir
+                case 3:  //Modificar
+                    System.out.println("Eliminar Tecnico ");
+                    System.out.println("Ingrese el apellido del técnico a modificar:");
+                    nombreTecnico = lectura.next();
+                    System.out.println("Ingrese el nombre del técnico a modificar:");
+                    nombreTecnico += lectura.next();
+                    System.out.println("Ingrese el nuevo numero del tecnico:");
+                    numeroTecnico += lectura.nextInt();
+                    modificarDatosTecnico(nombreTecnico, numeroTecnico);
+
                     break;
                 default:
                     System.out.print("Opcion no valida");
@@ -102,4 +125,5 @@ public class GestorPersonal {
         }
 
     }
+
 }
