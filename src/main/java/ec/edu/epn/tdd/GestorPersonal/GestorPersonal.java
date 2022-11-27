@@ -57,13 +57,23 @@ public class GestorPersonal {
 
     public boolean[] modificarDatosTecnico(String nombreTecnico, int numero) {
         boolean modificaciones [] = {false, false};
-        if (comprobarExistenciaTecnico(nombreTecnico)){
-            modificaciones[0] = true; //El tecnico a modificar existe
+        try {
+            if (comprobarExistenciaTecnico(nombreTecnico)) {
+                modificaciones[0] = true; //El tecnico a modificar existe
 
-            Tecnico t1 = new Tecnico(nombreTecnico, numero);
-            t1.RegistrarRespaldo();
-            modificaciones[1] = true; //Se modifico de manera adecuada los datos del tecnico
-                                      //y se respaldo la informacion
+                Tecnico t1 = new Tecnico(nombreTecnico, numero);
+                t1.RegistrarRespaldo();
+                modificaciones[1] = true; //Se modifico de manera adecuada los datos del tecnico
+                                          //y se respaldo la informacion
+            }else {
+                System.out.println("Error: El registro del técnico no existe");
+                modificaciones[0] = false; //No se encontro el respaldo del tecnico
+                modificaciones[1] = false; //No se modificaron los datos
+            }
+        }catch(Exception e){
+            System.out.println("Error al modificar los datos del tecnico");
+            modificaciones[0] = false;
+            modificaciones[1] = false;
         }
         return modificaciones;
     }
