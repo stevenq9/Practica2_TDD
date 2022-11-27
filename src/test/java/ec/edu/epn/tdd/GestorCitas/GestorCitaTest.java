@@ -1,4 +1,4 @@
-package ec.edu.epn.tdd.GestorPersonal;
+package ec.edu.epn.tdd.GestorCitas;
 
 import static org.junit.Assert.*;
 

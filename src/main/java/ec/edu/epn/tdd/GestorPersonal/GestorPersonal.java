@@ -18,16 +18,9 @@ public class GestorPersonal {
     //Métodos
 
     //Registro Personal
-    public void RegistrarTecnico(){
-        //Ingreso de datos del nuevo Tecnico
-        System.out.println("\t Registrar Tecnico ");
-        System.out.println("Ingrese el apellido del técnico:");
-        nombreTecnico = lectura.next();
-        System.out.println("Ingrese el nombre del técnico:");
-        nombreTecnico += lectura.next();
-        System.out.println("Ingrese el numero telefonico del técnico:");
-        numeroTecnico = lectura.nextInt();
+    public boolean RegistrarTecnico(String nombreTecnico, int numeroTecnico){
         tecnico = new Tecnico(nombreTecnico.toUpperCase(), numeroTecnico); //Registro del tecnico
+        return true;
     }
 
     //Eliminar Tecnico
@@ -96,8 +89,19 @@ public class GestorPersonal {
 
             switch (opcion){
                 case 1:                //Registro Tecnico
-                    RegistrarTecnico();
-                    tecnico.RegistrarRespaldo();
+                    //Ingreso de datos del nuevo Tecnico
+                    System.out.println("\t Registrar Tecnico ");
+                    System.out.println("Ingrese el apellido del técnico:");
+                    nombreTecnico = lectura.next();
+                    System.out.println("Ingrese el nombre del técnico:");
+                    nombreTecnico += lectura.next();
+                    System.out.println("Ingrese el numero telefonico del técnico:");
+                    numeroTecnico = lectura.nextInt();
+                    if(RegistrarTecnico(nombreTecnico, numeroTecnico)) {
+                        tecnico.RegistrarRespaldo();
+                    }else {
+                        System.out.println("Error: No se pudo registrar al nuevo técnico");
+                    }
                     break;
                 case 2:  //Eliminar Tecnico
                     System.out.println("Eliminar Tecnico ");
