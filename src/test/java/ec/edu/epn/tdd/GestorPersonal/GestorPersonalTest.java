@@ -3,6 +3,8 @@ package ec.edu.epn.tdd.GestorPersonal;
 import com.sun.jdi.IntegerValue;
 import net.bytebuddy.description.annotation.AnnotationValue;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.mockito.exceptions.misusing.MissingMethodInvocationException;
 
 import java.awt.datatransfer.MimeTypeParseException;
@@ -62,10 +64,5 @@ public class GestorPersonalTest {
         assertArrayEquals(modifications, g1.modificarDatosTecnico("PaezMarco",
                 998466068));
     }
-
-
-
-
-
 
 }
