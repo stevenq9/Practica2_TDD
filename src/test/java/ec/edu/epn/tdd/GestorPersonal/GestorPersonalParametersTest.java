@@ -34,10 +34,10 @@ public class GestorPersonalParametersTest {
 
     //Test with Parameters: Modify technician Data
     @Test
-    public void given_parameters_when_modify_data_then_modification(){
+    public void given_parameters_when_modify_data_then_error(){
         GestorPersonal g1 = new GestorPersonal();
         //To check correct modifications
-        boolean modifications [] = {true, true};
+        boolean modifications [] = {false, false};
         assertArrayEquals(modifications, g1.modificarDatosTecnico(nombre,
                     numero));
 
